@@ -8,26 +8,8 @@ output:
 
 ----
 
-```{r setup, include = FALSE}
-library(plotly)
-
-y0 = 542
-data_weak = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-weak-",as.character(y0),".csv"),sep = '\t', header = TRUE)
-data_mod = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-moderate-",as.character(y0),".csv"),sep = '\t', header = TRUE)
-data_strong = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-strong-",as.character(y0),".csv"),sep = '\t', header = TRUE)
-d_weak = data_weak$intensive
-d_mod = data_mod$intensive
-d_strong = data_strong$intensive
-dates = seq.Date(from = as.Date('2020-03-08'),to = as.Date('2020-06-08'), by = 1)
-df_plot = data.frame(dates,d_weak,d_mod,d_strong)
-fig <- plot_ly(df_plot, x = ~dates, y = ~d_weak, name = 'Controle Fraco', type = 'scatter', mode = 'lines') 
-fig <- fig %>% add_trace(y = ~d_mod, name = 'Controle Moderado', mode = 'lines+markers') 
-fig <- fig %>% add_trace(y = ~d_strong, name = 'Controle Forte', mode = 'lines+markers')
-tit = paste0("Demanda por Leitos no Estado RJ (Infectados = ",as.character(y0)," no dia 08/03)")
-fig <- fig %>% layout(title = tit,
-                      xaxis = list(title = "Dias"),
-                      yaxis = list (title = "Demanda por Leitos por COVID-19"))
-fig
+```{r setup, include = TRUE}
+htmltools::includeHTML("graph.html")
 ```
 
 ----
