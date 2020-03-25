@@ -3,11 +3,11 @@ suppressPackageStartupMessages({
   library(tidyverse)
   library(stringr)
   library(plotly)
+  library(htmltools)
 })
 
 ## variables I need for my site 
 y0 = 542
-data <- readr::read_csv('important_data.csv')
 data_weak = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-weak-",as.character(y0),".csv"),sep = '\t', header = TRUE)
 data_mod = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-moderate-",as.character(y0),".csv"),sep = '\t', header = TRUE)
 data_strong = read.table(paste0("C:/Users/Marcelo/Desktop/Covid/primeira_projs/estado-rio-strong-",as.character(y0),".csv"),sep = '\t', header = TRUE)
